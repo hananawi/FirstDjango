@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    article_modify
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form method="post" action=".">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="title">标题</label>
+                        <input class="form-control" type="text" id="title" name="title" value="{{ article.title }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="content">正文</label>
+                        <textarea class="form-control" id="content" name="content" rows="12" required>{{ article.content }}</textarea>
+                    </div>
+                    <button class="btn btn-primary float-right" type="submit">更改</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

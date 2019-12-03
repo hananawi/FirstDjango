@@ -1,0 +1,42 @@
+
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
+    <script src="https://cdn.bootcss.com/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'layer/layer.js' %}"></script>
+
+    <link href="{% static 'live2d/live2d.css' %}" rel="stylesheet">
+
+    {% block external %}{% endblock %}
+</head>
+<body>
+    {% include 'header.html' %}
+
+    {% block content %}{% endblock %}
+
+    <div class="waifu">
+        <div class="waifu-tips"></div>
+        <canvas id="live2d" class="live2d" width="280" height="250"></canvas>
+    </div>
+
+    <script src="{% static 'live2d/live2d.js' %}"></script>
+    <script type="text/javascript">
+        loadlive2d("live2d", "{% static 'live2d/shizuku/shizuku.model.json' %}");
+    </script>
+
+    {% block script %}{% endblock %}
+
+    <script src="{% static 'bg.js' %}" opacity="0.5"></script>
+</body>
+</html>

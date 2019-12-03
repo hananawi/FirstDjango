@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/static/cropper/cropper.min.css">
+    <script src="/static/cropper/cropper.min.js" type="text/javascript"></script>
+    <style>
+        img {
+            display: block;
+            max-width: 10%;
+        }
+    </style>
+    <script>
+        import Cropper from '/static/cropper/cropper.min';
+        const img = document.getElementById('img');
+        const cropper = new Cropper(img, {
+            aspectRatio: 16 / 9,
+            crop(event) {
+                console.log(event.detail.x);
+                console.log(event.detail.y);
+                console.log(event.detail.width);
+                console.log(event.detail.height);
+                console.log(event.detail.rotate);
+                console.log(event.detail.scaleX);
+                console.log(event.detail.scaleY);
+            },
+        });
+    </script>
+</head>
+
+<body>
+    <div>
+        <img alt="" src="001.jpg" id="img">
+    </div>
+</body>
+
+</html>

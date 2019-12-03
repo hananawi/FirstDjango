@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <div class="container mt-0 mb-0">
+        {% if request.session.is_login %}
+            <a class="navbar-brand mt-0 mb-0" href="/user/{{ request.session.user_name }}/profile/">
+            {% if request.session.user_avatar_url %}
+                <img alt=" " src="{{ request.session.user_avatar_url }}" style="width: 6vmin; height: 6vmin">
+            {% else %}
+                <img alt=" " src="#">
+            {% endif %}
+                <span>{{ request.session.user_name }}</span>
+            </a>
+        {% endif %}
+        {% if article_list %}
+            <form class="form-inline" action="." style="margin: 0 auto">
+                <input class="form-control" type="text" placeholder="Search" name="search">
+            </form>
+        {% endif %}
+        {% if request.session.is_login %}
+        <div>
+            <ul class="navbar-nav">
+                <li class="navbar-item">
+                    <a class="nav-link" href="{% url "user:homepage" %}">首页</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="nav-link" href="{% url "article:article_post" request.session.user_name %}">发帖</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="nav-link" href="{% url 'user:logout' %}">登出</a>
+                </li>
+            </ul>
+        </div>
+        {% else %}
+        <div {% if not flag_homepage %}class="w-100"{% endif %}>
+{#            <h4>Welcome</h4>#}
+            <ul class="navbar-nav justify-content-end">
+                <li class="navbar-item float-right">
+                    <a class="nav-link" href="{% url 'user:homepage' %}">首页</a>
+                </li>
+                <li class="navbar-item float-right">
+                    <a class="nav-link" href="{% url 'user:login' %}">登录</a>
+                </li>
+            </ul>
+        </div>
+    {% endif %}
+    </div>
+</nav>
