@@ -39,13 +39,13 @@
             {% for comment in comments %}
                 {% if article_id == comment.article_id %}
                 <article class="comment">
-                    <img alt="" src="{{ comment.user.avatar.url }}" class="comment_avatar">
+                    {% if user.avatar %}
+                        <img class="user-avatar" alt="#" src="{{ user.avatar.url }}">
+                    {% endif %}
                     <div style="display: inline-block">
                         <div class="comment_user">{{ comment.user.username }}</div>
                         <div style="font-family: inherit; font-size: 1rem;">{{ comment }}</div>
                     </div>
-{#                    <strong style="color: pink">{{ comment.user.username }}</strong>#}
-
                 </article>
                 {% endif %}
             {% endfor %}

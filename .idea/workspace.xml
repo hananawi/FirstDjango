@@ -51,8 +51,8 @@
       <list>
         <option value="HTML File" />
         <option value="Python Script" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -64,19 +64,19 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mysite" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/HelloWorld" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\comment" />
+      <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\user\templates" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\media\bg" />
       <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\static\cropper" />
       <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\demo" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\comment" />
-      <recent name="C:\Users\hananawi\PycharmProjects\HelloWorld\user\templates" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -226,6 +226,10 @@
       <workItem from="1575274815262" duration="6694000" />
       <workItem from="1575292902115" duration="8638000" />
       <workItem from="1575339900631" duration="4441000" />
+      <workItem from="1575360709452" duration="594000" />
+      <workItem from="1575361751274" duration="992000" />
+      <workItem from="1575363728356" duration="3048000" />
+      <workItem from="1575385214504" duration="1518000" />
     </task>
     <servers />
   </component>
@@ -249,14 +253,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://C:/Program Files (x86)/Python3.7/Lib/site-packages/django/forms/forms.py</url>
-          <line>182</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://C:/Program Files (x86)/Python3.7/Lib/site-packages/django/forms/forms.py</url>
-          <line>184</line>
-          <option name="timeStamp" value="3" />
+          <url>file://$PROJECT_DIR$/user/views.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

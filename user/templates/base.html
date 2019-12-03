@@ -16,6 +16,7 @@
 
     <script src="{% static 'layer/layer.js' %}"></script>
 
+    <link href="{% static 'header.css' %}" rel="stylesheet">
     <link href="{% static 'live2d/live2d.css' %}" rel="stylesheet">
 
     {% block external %}{% endblock %}
@@ -37,6 +38,6 @@
 
     {% block script %}{% endblock %}
 
-    <script src="{% static 'bg.js' %}" opacity="0.5"></script>
+    <script src="{% static 'bg.js' %}"></script>
 </body>
 </html>

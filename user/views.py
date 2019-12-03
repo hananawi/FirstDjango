@@ -17,7 +17,7 @@ def profile(request, username):
     if request.method == 'POST':
         profile_form = ProfileForm(request.POST)
         avatar = request.FILES.get('avatar')
-        if 'avatar' in request.FILES and user.avatar is not avatar:
+        if 'avatar' in request.FILES:
             user.avatar = avatar
             user.save()
             request.session['user_avatar_url'] = user.avatar.url
@@ -174,9 +174,10 @@ def homepage(request):
     #     article.content = markdown.markdown(article.content,
     #                                         extensions=['markdown.extensions.extra',
     #                                                     'markdown.extensions.codehilite', ])
-    if request.session.get('is_login'):
-        request.session['user_avatar_url'] =\
-            User.objects.get(id=request.session.get('user_id')).avatar.url
+
+    # if request.session.get('is_login'):
+    #     request.session['user_avatar_url'] =\
+    #         User.objects.get(id=request.session.get('user_id')).avatar.url
     flag_homepage = True
     return render(request, 'user/homepage.html', locals())
 
