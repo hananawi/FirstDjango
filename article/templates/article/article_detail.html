@@ -39,9 +39,12 @@
             {% for comment in comments %}
                 {% if article_id == comment.article_id %}
                 <article class="comment">
-                    {% if user.avatar %}
-                        <img class="user-avatar" alt="#" src="{{ user.avatar.url }}">
+                    {% if request.session.user_avatar_url %}
+                        <img class="comment_avatar" alt="#" src="{{ request.session.user_avatar_url }}">
+                    {% else %}
+                        <img class="comment_avatar" alt="#" src="/media/bg/login_bg.jpg">
                     {% endif %}
+{#                    <img class="user-avatar" alt=" " src="{{ request.session.user_avatar_url }}">#}
                     <div style="display: inline-block">
                         <div class="comment_user">{{ comment.user.username }}</div>
                         <div style="font-family: inherit; font-size: 1rem;">{{ comment }}</div>

@@ -33,7 +33,7 @@
                         <input type="password" name="password2" id="password2">
                     </div>
                     <div class="input" id="email" placeholder="邮箱">
-                        <input type="text" name="email">
+                        <input type="text" name="email" placeholder="可以不填">
                     </div>
                     <span>忘记密码？</span>
                     <button type="submit">登录</button>
@@ -45,6 +45,14 @@
 
 {% block script %}
     <script>
+        {% if request.session.flag_register %}
+            window.onload = function(){
+            layer.open({
+               content: '注册成功，快去登陆吧^_^',
+            });
+        };
+        {% endif %}
+
         $(function(){
             $('#login').click(function(){
                 $('.switch span').removeClass('active');
@@ -75,7 +83,7 @@
             }).on('blur', function(){
                 $(this).parent().removeClass('focus');
             });
-        })
+        });
     </script>
 {% endblock %}
 

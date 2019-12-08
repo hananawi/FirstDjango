@@ -72,6 +72,12 @@ def user_login(request):
     # return render(request, 'user/login.html', locals())
 
     error = ''
+    if request.session.get('flag_register'):
+        if request.session.get('flag_register2'):
+            request.session['flag_register'] = False
+            request.session['flag_register2'] = False
+        else:
+            request.session['flag_register2'] = True
     if request.session.get('is_login'):
         try:
             User.objects.get(id=request.session.get('user_id'))
@@ -132,7 +138,7 @@ def user_register(request):
             if User.objects.filter(username=new_username):
                 error = 'The username has been registered'
                 return render(request, 'user/register.html', locals())
-            elif User.objects.filter(email=new_email):
+            elif new_email != '' and User.objects.filter(email=new_email):
                 error = 'The email has been registered'
                 return render(request, 'user/register.html', locals())
             password1 = user_form.cleaned_data.get('password')
@@ -144,6 +150,7 @@ def user_register(request):
             new_user.password = password1
             new_user.email = new_email
             new_user.save()
+            request.session['flag_register'] = True
             return redirect('/user/login/')
         error = 'please complete the form!'
     return render(request, 'user/register.html', locals())
